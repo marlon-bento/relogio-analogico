@@ -1,66 +1,87 @@
 /* Layout */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #393263;
+    color: white;
+    height: 100vh;
+    
+}
+
 .main {
     display: flex;
-    padding: 2em;
-    height: 90vh;
     justify-content: center;
-    align-items: middle;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+ 
+    height: 100%;
+    
+}
+.digital-clock{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#horas-digitais{
+    background-color: black;
+    padding: 10px 30px;
+    border-radius: 30px;
+    opacity: 60%;
+}
+.clockbox {
+    border: 2px solid #000000b6;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 80vw; 
+    max-width: 600px;
+    aspect-ratio: 1; /* Manter a proporção 1:1 para o relógio */
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    -webkit-box-shadow: 30px 27px 55px -11px rgba(0,0,0,0.56);
+    -moz-box-shadow: 30px 27px 55px -11px rgba(0,0,0,0.56);
+    box-shadow: 30px 27px 55px -11px rgba(0,0,0,0.56);
 }
 
-.clockbox,
 #clock {
-    width: 100%;
+    width: 100%; 
+    background-color: #1312128f;
+
 }
 
-/* Clock styles */
 .circle {
-    fill: none;
-    stroke: #000;
-    stroke-width: 9;
-    stroke-miterlimit: 10;
+    fill: #ffffff; 
+
+}
+
+.hour-marks {
+    stroke: #333;
+    stroke-width: 5; 
 }
 
 .mid-circle {
-    fill: #000;
-}
-.hour-marks {
-    fill: none;
-    stroke: #000;
-    stroke-width: 9;
-    stroke-miterlimit: 10;
+    fill: #333; 
 }
 
-.hour-arm {
-    fill: none;
-    stroke: #000;
-    stroke-width: 17;
-    stroke-miterlimit: 10;
+.hour-arm, .minute-arm, .second-arm {
+    stroke: #333; 
+    stroke-width: 6; 
+    stroke-linecap: round; /*ponteiros arredondados */
 }
 
-.minute-arm {
-    fill: none;
-    stroke: #000;
-    stroke-width: 11;
-    stroke-miterlimit: 10;
-}
-
-.second-arm {
-    fill: none;
-    stroke: #000;
-    stroke-width: 4;
-    stroke-miterlimit: 10;
-}
-
-/* Caixa transparente que certifica-se que os ponteiros estão corretamente centralizados*/
 .sizing-box {
-    fill: none;
+    fill: none; /* Remove o preenchimento da caixa de dimensionamento */
+    stroke: none; /* Remove a borda da caixa de dimensionamento */
 }
 
-/* Faz com que os ponteiros caminhem ao redor do mesmo ponto central */
-/* Opcional: Use transition para criar animação */
 #hour,
 #minute,
 #second {
     transform-origin: 300px 300px;
-    transition: transform .5s ease-in-out;
+    /* transition: transform .5s ease-in-out; */
 }
